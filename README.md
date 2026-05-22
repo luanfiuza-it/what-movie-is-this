@@ -8,9 +8,15 @@ A plataforma se conecta à API oficial do TMDB (The Movie Database) para fornece
 ## 🖥️ Demonstração da Interface
 
 <p align="center">
-  <img src="./images/principal.png" alt="Visualização Principal" width="450">
-   &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="./images/expandido.png" alt="Grade Expandida" width="450">
+  <a href="./images/principal.png" target="_blank">
+    <img src="./images/principal.png" alt="Visualização Principal" width="45%">
+  </a>
+  &nbsp;&nbsp;
+  <a href="./images/expandido.png" target="_blank">
+    <img src="./images/expandido.png" alt="Grade Expandida" width="45%">
+  </a>
+  <br>
+  <sub align="center">🔍 Clique nas imagens para ampliar</sub>
 </p>
 
 ## 🚀 O que foi feito (Arquitetura & Funcionalidades)
