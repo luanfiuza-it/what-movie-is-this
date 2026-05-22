@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!-- Define que o documento usa HTML5 -->
+
+<html lang="pt-BR">
+<!-- Início do HTML e define o idioma da página como português do Brasil -->
+
+<head>
+    <!-- Área de configurações e informações da página -->
+
+    <meta charset="UTF-8">
+    <!-- Permite usar caracteres especiais como ç, á, é, etc -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Faz o site se adaptar corretamente em celulares e tablets -->
+
+    <title>What Movie Is This?</title>
+    <!-- Nome que aparece na aba do navegador -->
+
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Conecta o arquivo CSS externo responsável pelo visual do site -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Faz uma conexão antecipada com o servidor das fontes para carregar mais rápido -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Conexão antecipada com outro servidor das fontes do Google -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Importa a fonte "Inter" do Google Fonts -->
+</head>
+
+<body>
+<!-- Tudo que aparece visualmente no site fica dentro do body -->
+
+    <header>
+    <!-- Cabeçalho principal da página -->
+
+        <div class="logo">
+        <!-- Div usada para agrupar o logo/título -->
+
+            <h1>
+                What Movie <span>Is This?</span>
+            </h1>
+            <!-- Título principal do site -->
+            <!-- O span geralmente é usado para estilizar apenas uma parte do texto -->
+        </div>
+    </header>
+
+    <main class="container">
+    <!-- Conteúdo principal da página -->
+    <!-- A classe "container" normalmente controla largura e alinhamento -->
+
+        <section class="search-section">
+        <!-- Seção da pesquisa de filmes -->
+
+            <h2>Descubra seu próximo filme</h2>
+            <!-- Subtítulo da seção -->
+
+            <form id="search-form" class="search-box">
+            <!-- Formulário de busca -->
+            <!-- id é usado no JavaScript -->
+            <!-- class é usada no CSS -->
+
+                <!-- Campo de texto para pesquisar filmes -->
+                <input  
+                type="text"
+                id="search-input"
+                placeholder="Digite o nome do filme (ex: Batman, Interestelar...)"
+                required
+                autocomplete="off"
+                >
+
+                <button type="submit">
+                    Buscar
+                </button>
+                <!-- Botão que envia o formulário -->
+            </form>
+        </section>
+
+        <div id="message-container" class="message hidden"></div>
+        <!-- Área usada para mensagens -->
+        <!-- Exemplo: "Filme não encontrado" -->
+        <!-- A classe "hidden" provavelmente esconde o elemento inicialmente -->
+
+        <section id="movies-container" class="movies-grid">
+        <!-- Área onde os filmes serão adicionados dinamicamente pelo JavaScript -->
+        <!-- "movies-grid" provavelmente cria um layout em grade -->
+        
+        </section>
+
+    </main>
+
+    <footer>
+    <!-- Rodapé da página -->
+
+        <p>
+            &copy; 2026 - What Movie Is This? | Dados providos por 
+            
+            <a href="https://www.themoviedb.org/" target="_blank">
+                TMDB
+            </a>
+        </p>
+        <!-- Link para o site da API TMDB -->
+        <!-- target="_blank" faz abrir em outra aba -->
+    </footer>
+
+    <script src="js/app.js"></script>
+    <!-- Conecta o arquivo JavaScript responsável pela lógica do site -->
+    <!-- Exemplo: buscar filmes na API e mostrar resultados -->
+
+</body>
+</html>

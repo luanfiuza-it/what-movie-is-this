@@ -1,0 +1,231 @@
+/* =========================================
+   1. VARIÁVEIS GLOBAIS E RESET
+   ========================================= */
+
+/* O :root é onde guardamos as "variáveis" do CSS. 
+   Se você quiser mudar a cor principal do site no futuro, muda só aqui! */
+:root {
+    --bg-color: #141414;        /* Fundo bem escuro, padrão streaming */
+    --text-light: #ffffff;      /* Texto principal branco */
+    --text-dim: #b3b3b3;        /* Texto secundário (cinza claro) */
+    --primary-color: #e50914;   /* Vermelho vibrante estilo cinema/Netflix */
+    --primary-hover: #b80710;   /* Vermelho um pouco mais escuro para quando passar o mouse */
+    --card-bg: #222222;         /* Fundo levemente mais claro para os cards dos filmes */
+    --font-main: 'Inter', sans-serif; /* A fonte moderna que importamos no HTML */
+}
+
+/* O asterisco (*) seleciona TODOS os elementos do site. 
+   Isso tira as margens e espaçamentos padrão que os navegadores colocam sozinhos. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Faz com que as bordas não aumentem o tamanho total das caixas */
+}
+
+/* =========================================
+   2. ESTILOS DO CORPO DA PÁGINA (BODY)
+   ========================================= */
+body {
+    background-color: var(--bg-color); /* Puxa a cor escura da variável */
+    color: var(--text-light);          /* Puxa a cor branca da variável */
+    font-family: var(--font-main);     /* Aplica a fonte Inter */
+    min-height: 100vh;                 /* Garante que o corpo ocupe 100% da altura da tela */
+    display: flex;                     /* Transforma o corpo em um flex container... */
+    flex-direction: column;            /* ...empilhando os itens (header, main, footer) de cima para baixo */
+}
+
+/* =========================================
+   3. CABEÇALHO E LOGO (HEADER)
+   ========================================= */
+header {
+    background-color: #000000; /* Fundo preto puro para destacar o topo */
+    padding: 20px 0;           /* Espaço de 20px em cima e embaixo, 0 nas laterais */
+    text-align: center;        /* Centraliza a logo */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Cria uma sombra suave embaixo do cabeçalho */
+}
+
+.logo h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Aquele <span> que colocamos no HTML para pintar a segunda parte do nome */
+.logo span {
+    color: var(--primary-color); /* Pinta "Is This?" de vermelho */
+}
+
+/* =========================================
+   4. ESTRUTURA PRINCIPAL (MAIN E SECTIONS)
+   ========================================= */
+.container {
+    flex: 1;             /* Faz o conteúdo principal crescer e empurrar o rodapé para baixo */
+    max-width: 1200px;   /* Limita a largura máxima do site em telas gigantes */
+    margin: 0 auto;      /* Centraliza o container no meio da tela */
+    padding: 40px 20px;  /* Espaço interno */
+}
+
+/* =========================================
+   5. BARRA DE PESQUISA (SEARCH SECTION)
+   ========================================= */
+.search-section {
+    text-align: center;
+    margin-bottom: 50px; /* Dá um respiro entre a busca e os filmes */
+}
+
+.search-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* O formulário em si, usando flexbox para colocar o input e o botão lado a lado */
+.search-box {
+    display: flex;
+    justify-content: center; /* Centraliza a caixa e o botão */
+    gap: 10px;               /* Dá um espaço de 10px entre o campo de texto e o botão */
+    max-width: 600px;        /* Não deixa a barra de busca ficar larga demais */
+    margin: 0 auto;          /* Centraliza o formulário */
+}
+
+/* O campo de digitar o texto */
+#search-input {
+    flex: 1;                 /* Faz o campo de texto ocupar todo o espaço que sobrar */
+    padding: 15px 20px;      /* Deixa o campo mais "gordinho" e confortável */
+    font-size: 1rem;
+    border: none;            /* Tira a borda padrão feia */
+    border-radius: 8px;      /* Arredonda os cantos */
+    background-color: #333;  /* Fundo cinza escuro */
+    color: white;            /* Texto digitado em branco */
+    outline: none;           /* Tira aquela linha azul quando clica dentro */
+    transition: 0.3s;        /* Suaviza as animações de cor */
+}
+
+/* Quando o usuário clica dentro do campo (focus) */
+#search-input:focus {
+    background-color: #444; /* Fica um pouco mais claro */
+    box-shadow: 0 0 0 2px var(--primary-color); /* Adiciona um contorno vermelho estiloso */
+}
+
+/* O botão de buscar */
+.search-box button {
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary-color); /* Fundo vermelho */
+    color: white;
+    cursor: pointer;         /* Muda a setinha do mouse para a mãozinha de clique */
+    transition: background-color 0.3s; /* Animação suave na cor */
+}
+
+/* Quando passa o mouse por cima do botão (hover) */
+.search-box button:hover {
+    background-color: var(--primary-hover); /* Fica vermelho escuro */
+}
+
+/* =========================================
+   6. GRID DE FILMES (ONDE OS CARDS VÃO APARECER)
+   ========================================= */
+.movies-grid {
+    display: grid; /* Transforma a área em uma grade matemática */
+    /* A mágica do grid responsivo: cria colunas que têm no mínimo 250px e no máximo o que sobrar de espaço. 
+       Isso faz com que caibam 4 filmes no PC, 2 no tablet e 1 no celular automaticamente! */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap: 30px; /* Espaço entre um card de filme e outro */
+}
+
+/* =========================================
+   7. CARD DO FILME (VISUAL DE CADA FILME)
+   ========================================= */
+.movie-card {
+    background-color: var(--card-bg); /* Fundo do card */
+    border-radius: 12px;              /* Cantos arredondados */
+    overflow: hidden;                 /* Esconde qualquer coisa que vazar do card (como as pontas da imagem) */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra 3D */
+    transition: transform 0.3s ease;  /* Animação suave para quando passar o mouse */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Efeito de levitar o card quando o mouse passa por cima */
+.movie-card:hover {
+    transform: translateY(-10px); /* Sobe o card 10 pixels */
+}
+
+/* Imagem do pôster do filme */
+.movie-card img {
+    width: 100%;       /* Ocupa toda a largura do card */
+    height: 375px;     /* Altura fixa para manter um padrão */
+    object-fit: cover; /* Recorta a imagem para ela não ficar esticada ou achatada */
+}
+
+/* Área de texto embaixo da imagem do filme */
+.movie-info {
+    padding: 20px;
+    flex: 1; /* Ocupa o restante do espaço do card */
+}
+
+.movie-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+/* Nota do filme (ex: ⭐ 8.5) */
+.rating {
+    display: inline-block;
+    background-color: #333;
+    color: #ffd700; /* Estrela dourada */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+/* Sinopse do filme */
+.overview {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    line-height: 1.5; /* Espaço entre as linhas do texto */
+    /* As 4 linhas abaixo criam o efeito de "..." no final do texto se a sinopse for muito longa */
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Limita a 4 linhas de texto */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* =========================================
+   8. MENSAGENS DE FEEDBACK (ERROS E LOADING)
+   ========================================= */
+.message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--text-dim);
+    margin-bottom: 30px;
+}
+
+/* Classe vital para o JavaScript: usamos ela para esconder coisas da tela */
+.hidden {
+    display: none !important;
+}
+
+/* =========================================
+   9. RODAPÉ (FOOTER)
+   ========================================= */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #000; /* Fundo preto sólido */
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--primary-color); /* Link em vermelho */
+    text-decoration: none;       /* Tira o sublinhado do link */
+    font-weight: 600;
+}
+
+footer a:hover {
+    text-decoration: underline;  /* Coloca o sublinhado só no hover */
+}
