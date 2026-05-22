@@ -190,7 +190,7 @@ header {
     /* As 4 linhas abaixo criam o efeito de "..." no final do texto se a sinopse for muito longa */
     display: -webkit-box;
     -webkit-line-clamp: 4; /* Limita a 4 linhas de texto */
-    -webkit-box-orient: vertical;
+    line-clamp: 4;
     overflow: hidden;
 }
 
