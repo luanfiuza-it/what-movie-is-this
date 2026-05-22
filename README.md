@@ -5,6 +5,13 @@ Uma aplicação web interativa e dinâmica para descoberta e consulta de filmes,
 A plataforma se conecta à API oficial do TMDB (The Movie Database) para fornecer dados em tempo real sobre produções cinematográficas.
 
 ---
+## 🖥️ Demonstração da Interface
+
+<p align="center">
+  <img src="./images/principal.png" alt="Visualização Principal" width="450">
+   &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="./images/expandido.png" alt="Grade Expandida" width="450">
+</p>
 
 ## 🚀 O que foi feito (Arquitetura & Funcionalidades)
 
@@ -46,6 +53,7 @@ Foram implementadas práticas essenciais de segurança e organização:
 - **Backend:** Python 3.x
 - **Frontend:** HTML5, CSS3, JavaScript (ES6+)
 - **API Externa:** [The Movie Database (TMDB)](https://www.themoviedb.org/)
+- **Ambiente de trabalho:** Linux Ubuntu WSL2
 
 ### Para rodar a aplicação em seu computador leia:
 
